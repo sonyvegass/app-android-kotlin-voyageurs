@@ -1,6 +1,7 @@
 package com.example.myapplicationpa2
 
 import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -44,9 +45,11 @@ class ProfileActivity : AppCompatActivity() {
 
         // Action du bouton "VOIR MES RÉSERVATIONS"
         buttonReservations.setOnClickListener {
-            // Ici tu peux implémenter l'action pour voir les réservations de l'utilisateur
-            Toast.makeText(this, "Action à implémenter pour voir les réservations", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ReservationsActivity::class.java)
+            intent.putExtra("userId", userId) // userId est récupéré précédemment
+            startActivity(intent)
         }
+
     }
 
     private fun getUserProfile(userId: String) {

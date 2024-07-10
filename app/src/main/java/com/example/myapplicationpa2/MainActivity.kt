@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplicationpa2.R
 import com.example.myapplicationpa2.viewmodel.UserViewModel
 import com.example.myapplicationpa2.viewmodel.ReservationsViewModel
-import com.example.myapplicationpa2.adapter.ReservationsAdapter
+import com.example.myapplicationpa2.ReservationsAdapter
 
 class MainActivity : AppCompatActivity() {
 

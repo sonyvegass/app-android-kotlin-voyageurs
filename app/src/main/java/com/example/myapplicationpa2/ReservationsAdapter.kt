@@ -1,4 +1,4 @@
-package com.example.myapplicationpa2.adapter
+package com.example.myapplicationpa2
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplicationpa2.R
 import com.example.myapplicationpa2.model.Reservation
 
-class ReservationsAdapter :
-    ListAdapter<Reservation, ReservationsAdapter.ReservationViewHolder>(DIFF_CALLBACK) {
+class ReservationsAdapter : ListAdapter<Reservation, ReservationsAdapter.ReservationViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReservationViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_reservation, parent, false)
@@ -23,11 +21,20 @@ class ReservationsAdapter :
     }
 
     class ReservationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val locationTextView: TextView = itemView.findViewById(R.id.locationTextView)
+        private val reservationIdTextView: TextView = itemView.findViewById(R.id.reservationIdTextView)
         private val datesTextView: TextView = itemView.findViewById(R.id.datesTextView)
+        private val numAdultsTextView: TextView = itemView.findViewById(R.id.numAdultsTextView)
+        private val numChildrenTextView: TextView = itemView.findViewById(R.id.numChildrenTextView)
+        private val numBabiesTextView: TextView = itemView.findViewById(R.id.numBabiesTextView)
+        private val totalPriceTextView: TextView = itemView.findViewById(R.id.totalPriceTextView)
 
         fun bind(reservation: Reservation) {
-            datesTextView.text = "${reservation.startDate} - ${reservation.endDate}"
+            reservationIdTextView.text = "ID Réservation: ${reservation.id}"
+            datesTextView.text = "Dates Réservées: ${reservation.dates.joinToString(", ")}"
+            numAdultsTextView.text = "Nombre d'adultes: ${reservation.numAdults}"
+            numChildrenTextView.text = "Nombre d'enfants: ${reservation.numChildren}"
+            numBabiesTextView.text = "Nombre de bébés: ${reservation.numInfants}"
+            totalPriceTextView.text = "Prix total: ${reservation.totalPrice}"
         }
     }
 

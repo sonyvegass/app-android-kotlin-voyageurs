@@ -7,21 +7,42 @@
     android:padding="16dp"
     tools:context=".ReservationsActivity">
 
+    <!-- Titre "MES RÉSERVATIONS" -->
     <TextView
         android:id="@+id/reservationsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mes Réservations"
-        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:text="MES RÉSERVATIONS"
+        android:textSize="24sp"
+        android:textStyle="bold"
         android:layout_gravity="center"
         android:paddingBottom="16dp" />
 
+    <!-- Vue de chargement -->
+    <ProgressBar
+        android:id="@+id/loadingProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <!-- Message d'erreur -->
     <TextView
-        android:id="@+id/reservationsTextView"
+        android:id="@+id/errorTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="Chargement des réservations..."
-        android:textAppearance="?attr/textAppearanceBody1" />
+        android:text="Erreur lors du chargement des réservations."
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:padding="8dp" />
+
+    <!-- RecyclerView pour lister les réservations -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reservationsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:listitem="@layout/item_reservation" />
 
 </LinearLayout>

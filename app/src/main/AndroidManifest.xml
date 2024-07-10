@@ -43,6 +43,8 @@
             <!-- Ajoutez d'autres attributs si nécessaire -->
         </activity>
 
+        <activity android:name=".ReservationsActivity" />
+
     </application>
 
 </manifest>
